@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     name: Runing Github Downloader
     steps:
-    - uses: fabacab/jekyll-builder-for-github-pages-action@v1 # Or whatever "@ref" you want.
     - name: Build Jekyll site.
+    - uses: fabacab/jekyll-builder-for-github-pages-action@v1 # Or whatever "@ref" you want.
