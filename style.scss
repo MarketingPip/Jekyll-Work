@@ -1,193 +1,289 @@
-/* nav specialized to landing page */
-.logo {
-	background: url('../svg/logo.svg') no-repeat;
-	background-size: contain;
-	margin: 1rem 0 0 1rem;
+---
+---
+
+//
+// IMPORTS
+//
+
+@import "reset";
+@import "variables";
+// Syntax highlighting @import is at the bottom of this file
+
+/**************/
+/* BASE RULES */
+/**************/
+
+html {
+  font-size: 100%;
+}
+
+body {
+	background: $white;
+  font: 18px/1.4 $helvetica;
+  color: $darkGray;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $helveticaNeue;
+  color: $darkerGray;
+  font-weight: bold;
+
+  line-height: 1.7;
+  margin: 1em 0 15px;
+  padding: 0;
+
+  @include mobile {
+    line-height: 1.4;
+  }
+}
+
+h1 {
+  font-size: 30px;
+  a {
+    color: inherit;
+  }
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+  color: $gray;
+}
+
+p {
+  margin: 15px 0;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+	cursor: pointer;
+  &:hover, &:active {
+    color: $blue;
+  }
+}
+
+ul, ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ul, ul ol, ul ul, ol ol {
+  margin: 0;
+}
+
+ul ul, ol ul {
+  list-style-type: circle;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+// Fixes images in popup boxes from Google Translate
+.gmnoprint img {
+  max-width: none;
+}
+
+.date {
+  font-style: italic;
+  color: $gray;
+}
+
+// Specify the color of the selection
+::-moz-selection {
+  color: $black;
+  background: $lightGray;
+}
+::selection {
+  color: $black;
+  background: $lightGray;
+}
+
+// Nicolas Gallagher's micro clearfix hack
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*********************/
+/* LAYOUT / SECTIONS */
+/*********************/
+
+//
+// .masthead
+//
+
+.wrapper-masthead {
+  margin-bottom: 50px;
+}
+
+.masthead {
+  padding: 20px 0;
+  border-bottom: 1px solid $lightGray;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.site-avatar {
+  float: left;
+  width: 70px;
+  height: 70px;
+  margin-right: 15px;
+
+  @include mobile {
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+
+  img {
+    border-radius: 5px;
+  }
+}
+
+.site-info {
+  float: left;
+
+  @include mobile {
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.site-name {
+  margin: 0;
+  color: $darkGray;
+  cursor: pointer;
+  font-family: $helveticaNeue;
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.site-description {
+  margin: -5px 0 0 0;
+  color: $gray;
+  font-size: 16px;
+
+  @include mobile {
+    margin: 3px 0;
+  }
 }
 
 nav {
-	background-color: var(--bg-color);
-}
+  float: right;
+  margin-top: 23px; // @TODO: Vertically middle align
+  font-family: $helveticaNeue;
+  font-size: 18px;
 
-/* hero section */
-.hero {
-	text-align: center;
-	background-color: var(--bg-color);
-	padding: 2rem 0 10rem 0;
-}
+  @include mobile {
+    float: none;
+    margin-top: 9px;
+    display: block;
+    font-size: 16px;
+  }
 
-.hero__title {
-	font-weight: 900;
-	color: var(--primary-color);
-}
+  a {
+    margin-left: 20px;
+    color: $darkGray;
+    text-align: right;
+    font-weight: 300;
+    letter-spacing: 1px;
 
-.hero__description {
-	margin: -1rem auto 2rem auto;
-}
-
-/* @keyframes fadeUp { from { opacity: 0; } to { opacity: 1; }} */
-@keyframes fadeUp {
-    from {
-        transform: translate3d(0,40px,0);
-		opacity: 0;
+    @include mobile {
+      margin: 0 10px;
+      color: $blue;
     }
-
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
-}
-.hero__terminal {
-	margin-top: 1px !important;
-	width: 60%;
-	margin: -11rem auto 3rem auto;
-	text-align: left;
-	color: white;
-	padding: 0 1rem;
-	border-radius: 4px;
-	background-color: #605F5F;
-	min-height: 285px;
-	animation: fadeUp 2s;
-	box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.1);
-	opacity: 0;
-  	animation-fill-mode: forwards;
+  }
 }
 
-.hero__image {
-	width: 60%;
-	margin: -11rem auto 3rem auto;
-	text-align: center;
-	color: white;
-	padding: 0 1rem;
-	border-radius: 4px;
-	background-color: transparent;
-	min-height: 285px;
-	animation: fadeUp 2s;
-	box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.1);
-	display: flex;
-  	justify-content: center;
+//
+// .main
+//
+
+.posts > .post {
+  padding-bottom: 2em;
+  border-bottom: 1px solid $lightGray;
 }
 
-.hero__image img {
-	display: block;
-	/* max-width:230px;
-	max-height:95px; */
-	width: auto;
-	height: auto;
+.posts > .post:last-child {
+  padding-bottom: 1em;
+  border-bottom: none;
 }
 
-.hero__image pre {
-	background-color: transparent;
-	white-space: pre-line;
-	padding-top: 1rem;
+.post {
+  blockquote {
+    margin: 1.8em .8em;
+    border-left: 2px solid $gray;
+    padding: 0.1em 1em;
+    color: $gray;
+    font-size: 22px;
+    font-style: italic;
+  }
+
+  .comments {
+    margin-top: 10px;
+  }
+
+  .read-more {
+    text-transform: uppercase;
+    font-size: 15px;
+  }
 }
 
-.hero__terminal pre {
-	white-space: pre-line;
-	padding-top: 1rem;
+.wrapper-footer {
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: $lightGray;
 }
 
-/* feature section */
-.feature {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-    justify-content: center;
+footer {
+  padding: 20px 0;
+  text-align: center;
 }
 
-.feature__item {
-	max-width: calc(33% - 20px);
-	margin: 0 20px 0 0;
-}
-
-.feature__item .section__title {
-	margin-bottom: 0;
-}
-
-.feature__item p {
-	margin-top: 0.5rem;
-}
-
-/* callout section */
-.callout {
-	text-align: center;
-	padding: 1rem 0 3rem 0;
-}
-
-.callout .button--primary {
-	display: inline-block;
-	margin-top: 0.5rem;
-}
-
-/* changelog section */
-.changelog {
-	background-color: var(--bg-color);
-	padding: 2rem 0;
-}
-
-.changelog__item {
-	display: flex;
-}
-
-.changelog__meta {
-	flex-basis: 25%;
-}
-
-.changelog__meta small {
-	color: var(--primary-color-light);
-	font-weight: 200;
-	letter-spacing: 1px;
-}
-
-.changelog__title {
-	margin-bottom: 0;
-}
-
-.changelog__callout {
-	margin: 3rem auto 2rem auto;
-	text-align: center;
-}
-
-@media (max-width: 750px) {
-	.hero__terminal {
-		width: 70%;
-	}
-
-	.hero__terminal pre .hero__terminal {
-		margin-left: 0;
-		margin-right: 0;
-	}
-
-	.hero__terminal .tab__container {
-		left: 70% !important; 
-	}
-
-	.hero__image {
-		width: 70%;
-	}
-
-	.hero__image img {
-		/* width: 70%; */
-		transform: scale(0.5, 0.5);
-	}
-
-	.tab__container>ul {
-		right: auto;
-		left: 0;
-		padding-left: 0;
-	}
-
-	.tab__container .code {
-		margin-top: 2rem;
-	}
-
-	.feature,
-	.changelog__item {
-		flex-direction: column;
-	}
-
-	.feature__item {
-		max-width: 100%;
-		margin: 0;
-	}
-}
+// Settled on moving the import of syntax highlighting to the bottom of the CSS
+// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+@import "highlights";
+@import "svg-icons";
