@@ -9,6 +9,7 @@
   "email" : "hello@world.com",
   "copyright_name": "Jared V",
   "theme_color": "Dark",
-  "visible": true
+  "visible": true,
+  "movies": true
  }
 ]
