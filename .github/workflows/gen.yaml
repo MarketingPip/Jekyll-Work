@@ -1,3 +1,4 @@
+
 name: GitHub Downloader
 # Define when to run job here
 on: [push, pull_request]
@@ -8,12 +9,17 @@ jobs:
     name: Runing Github Downloader
     steps:
     - uses: actions/checkout@v2
+    - uses: MarketingPipeline/GitHub-Downloader-Action@main
+      with:
+        # Define the folder or file to download
+        repo: https://github.com/plusjade/jekyll-bootstrap/blob/master
+        overwrite: true
 
      # Commit the updates
     - name: Commit and Push Downloaded Files 
       run: |
          git config --global user.name "github-actions[bot]"
          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-         git rm -r *
+         git add -A
          git commit -m "Added Downloadedd File"
          git push
